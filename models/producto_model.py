@@ -1,8 +1,16 @@
+#TODO: Esperar.
 class ProductModel:
-    def __init__(self):
-        pass
+    @staticmethod
     def agregar_producto(nombre, descripcion, categoria, precio_compra, precio_venta, stock, stock_minimo, unidad, proveedor_id):pass
+        
+    @staticmethod
     def obtener_productos():pass
-    def obtener_producto_por_id(id):pass
-    def actualizar_producto(id, nombre, descripcion, categoria, precio_compra, precio_venta, stock, stock_minimo, unidad, proveedor_id, activo):pass
-    def eliminar_producto(id):pass
+        
+    @staticmethod
+    def obtener_producto_por_id(producto_id):pass
+        
+    @staticmethod
+    def actualizar_producto(producto_id, nombre, descripcion, categoria, precio_compra, precio_venta, stock, stock_minimo, unidad, proveedor_id):pass
+        
+    @staticmethod
+    def eliminar_producto(producto_id):pass
