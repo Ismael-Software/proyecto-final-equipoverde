@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         self.init_ui()
   
     def init_ui(self):
-        self.setWindowTitle(f"NailStack - Sistema de Gestión [Usuario: Administrador.]")
+        self.setWindowTitle(f"NailStack - Panel Principal")
         self.setGeometry(100, 100, 1200, 700)
       
         # Widget central
