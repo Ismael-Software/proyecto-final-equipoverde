@@ -11,19 +11,19 @@ from ..views.reportes_view import ReportesView
 from ..views.configuracion_view import ConfiguracionView
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self): #Es el constructor de la ventana principal
         super().__init__()
         self.init_ui()
     
-    def init_ui(self):
+    def init_ui(self):  #Su proposito es crear toda la interfaz grafica del sistema
         self.setWindowTitle(f"NailStack - Sistema de Gestión [Usuario: Administrador.]")
         self.setGeometry(100, 100, 1200, 700)
         
-        # Widget central
+        #Widget central
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         
-        # Layout principal
+        #diseño principal
         main_layout = QHBoxLayout()
         central_widget.setLayout(main_layout)
         
@@ -94,7 +94,7 @@ class MainWindow(QMainWindow):
         # Mostrar primera vista
         self.cambiar_vista(0)
     
-    def crear_boton_menu(self, texto):
+    def crear_boton_menu(self, texto):  #crear un boton estilizado del menu lateral
         btn = QPushButton(texto)
         btn.setFixedHeight(40)
         btn.setStyleSheet('''
@@ -115,7 +115,7 @@ class MainWindow(QMainWindow):
         ''')
         return btn
     
-    def cambiar_vista(self, index):
+    def cambiar_vista(self, index): #Cambiar entre vistas y actualizar el estilo de los botones para mostrar cual esta activo.
         self.stacked_widget.setCurrentIndex(index)
         
         # Resetear estilos de todos los botones
