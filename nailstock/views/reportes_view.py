@@ -8,11 +8,11 @@ from ..utils.reportes import Reportes
 from ..utils.mensajes import Mensajes
 
 class ReportesView(QWidget):
-    def __init__(self):
+    def __init__(self): #Constructor de la vista de reportes.
         super().__init__()
         self.init_ui()
     
-    def init_ui(self):
+    def init_ui(self):  #Construye toda la interfaz de usuario de la seccion Reportes.
         layout = QVBoxLayout()
         
         # Grupo de exportación
@@ -75,7 +75,7 @@ class ReportesView(QWidget):
         
         self.setLayout(layout)
     
-    def exportar_productos(self):
+    def exportar_productos(self):   #Abrir un diálogo para elegir dónde guardar un archivo CSV.
         try:
             ruta_archivo, _ = QFileDialog.getSaveFileName(
                 self, "Guardar Productos como CSV", 
@@ -86,11 +86,11 @@ class ReportesView(QWidget):
             if ruta_archivo:
                 Reportes.exportar_productos_csv(ruta_archivo)
                 Mensajes.mostrar_exito(f"Productos exportados correctamente a:\n{ruta_archivo}", self)
-        
+        #Mostrar un mensaje de éxito o error usando Mensajes.
         except Exception as e:
             Mensajes.mostrar_error(f"Error al exportar productos: {str(e)}", self)
     
-    def exportar_ventas(self):
+    def exportar_ventas(self):  #exportar ventas filtradas por período a un CSV.
         try:
             ruta_archivo, _ = QFileDialog.getSaveFileName(
                 self, "Guardar Ventas como CSV", 
@@ -108,7 +108,7 @@ class ReportesView(QWidget):
         except Exception as e:
             Mensajes.mostrar_error(f"Error al exportar ventas: {str(e)}", self)
     
-    def exportar_clientes(self):
+    def exportar_clientes(self):    #crear un CSV con la información de clientes.
         try:
             ruta_archivo, _ = QFileDialog.getSaveFileName(
                 self, "Guardar Clientes como CSV", 
@@ -123,7 +123,7 @@ class ReportesView(QWidget):
         except Exception as e:
             Mensajes.mostrar_error(f"Error al exportar clientes: {str(e)}", self)
     
-    def generar_reporte_ventas(self):
+    def generar_reporte_ventas(self):   #generar un reporte completo de ventas para un período definido
         try:
             fecha_inicio = self.fecha_inicio.date().toString('yyyy-MM-dd')
             fecha_fin = self.fecha_fin.date().toString('yyyy-MM-dd')
@@ -150,7 +150,7 @@ class ReportesView(QWidget):
         except Exception as e:
             Mensajes.mostrar_error(f"Error al generar reporte: {str(e)}", self)
     
-    def generar_reporte_stock(self):
+    def generar_reporte_stock(self):    #generar un análisis del stock actual.
         try:
             reporte = Reportes.generar_reporte_stock()
             
@@ -180,7 +180,7 @@ class ReportesView(QWidget):
         except Exception as e:
             Mensajes.mostrar_error(f"Error al generar reporte: {str(e)}", self)
     
-    def mostrar_productos_populares(self, productos):
+    def mostrar_productos_populares(self, productos):   #mostrar en la tabla los productos más vendidos junto a sus métricas.
         self.table_resultados.setColumnCount(4)
         self.table_resultados.setHorizontalHeaderLabels([
             "Producto", "Cantidad Vendida", "Ingresos", "Promedio por Unidad"
@@ -198,7 +198,7 @@ class ReportesView(QWidget):
         header = self.table_resultados.horizontalHeader()
         header.setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
     
-    def mostrar_stock_bajo(self, productos):
+    def mostrar_stock_bajo(self, productos):    #mostrar en la tabla los productos con stock bajo.
         self.table_resultados.setColumnCount(4)
         self.table_resultados.setHorizontalHeaderLabels([
             "Producto", "Stock Actual", "Stock Mínimo", "Unidad"
