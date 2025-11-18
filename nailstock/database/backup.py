@@ -15,7 +15,7 @@ def crear_respaldo(ruta_destino=None):
     :raises FileNotFoundError: Si la base de datos original no existe.
     """
     # Ruta de la base de datos principal de la aplicación
-    db_path = Path("database/nailstack.db")
+    db_path = Path("database/nailstock.db")
 
     if not db_path.exists():
         # Si la base de datos no existe, no tiene sentido crear un respaldo
@@ -24,7 +24,7 @@ def crear_respaldo(ruta_destino=None):
     if ruta_destino is None:
         # Generar un nombre de archivo con timestamp para evitar sobrescribir
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        ruta_destino = f"backups/nailstack_backup_{timestamp}.db"
+        ruta_destino = f"backups/nailstock_backup_{timestamp}.db"
 
     # Crear la carpeta de destino si no existe (ej. "backups/")
     Path(ruta_destino).parent.mkdir(parents=True, exist_ok=True)
@@ -49,7 +49,7 @@ def restaurar_respaldo(ruta_respaldo):
     :raises FileNotFoundError: Si el archivo de respaldo no existe.
     """
     # Ruta de la base de datos principal
-    db_path = Path("database/nailstack.db")
+    db_path = Path("database/nailstock.db")
 
     if not Path(ruta_respaldo).exists():
         # No se encontró el archivo de respaldo indicado

@@ -111,7 +111,7 @@ class ProductosView(QWidget):
                 self.table.setItem(row, 0, QTableWidgetItem(str(producto[0])))
                 self.table.setItem(row, 1, QTableWidgetItem(producto[1]))
                 self.table.setItem(row, 2, QTableWidgetItem(producto[3] or "Sin categoría"))
-                self.table.setItem(row, 3, QTableWidgetItem(producto[11] or "Sin proveedor"))
+                self.table.setItem(row, 3, QTableWidgetItem(producto[12] or "Sin proveedor"))
                 self.table.setItem(row, 4, QTableWidgetItem(f"${producto[4]:.2f}"))
                 self.table.setItem(row, 5, QTableWidgetItem(f"${producto[5]:.2f}"))
                 

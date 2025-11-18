@@ -16,7 +16,7 @@ class MainWindow(QMainWindow):
         self.init_ui()
     
     def init_ui(self):  #Su proposito es crear toda la interfaz grafica del sistema
-        self.setWindowTitle(f"NailStack - Sistema de Gestión [Usuario: Administrador.]")
+        self.setWindowTitle(f"NailStock - Sistema de Gestión [Usuario: Administrador.]")
         self.setGeometry(100, 100, 1200, 700)
         
         #Widget central
@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         side_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
         
         # Título del panel
-        title_label = QLabel("NAILSTACK")
+        title_label = QLabel("NailStock")
         title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         title_font = QFont()
         title_font.setPointSize(16)

@@ -14,7 +14,7 @@ def resource_path(relative_path: str) -> str:
 
 class DBConnection:
     def __init__(self):
-        self.db_path = Path("database/nailstack.db")
+        self.db_path = Path("database/nailstock.db")
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._create_tables()
     

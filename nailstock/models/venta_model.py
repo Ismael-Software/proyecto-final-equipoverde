@@ -2,7 +2,7 @@ from ..database.db_connection import get_db_connection
 
 class VentaModel:
     @staticmethod
-    def agregar_venta(cliente_id, usuario_id, productos):
+    def agregar_venta(cliente_id, productos):
         conn = get_db_connection()
         cursor = conn.cursor()
         
@@ -12,9 +12,9 @@ class VentaModel:
             
             # Insertar venta
             cursor.execute('''
-                INSERT INTO ventas (cliente_id, usuario_id, total)
-                VALUES (?, ?, ?)
-            ''', (cliente_id, usuario_id, total))
+                INSERT INTO ventas (cliente_id, total)
+                VALUES (?, ?)
+            ''', (cliente_id, total))
             
             venta_id = cursor.lastrowid
             
@@ -42,10 +42,9 @@ class VentaModel:
         cursor = conn.cursor()
         
         query = '''
-            SELECT v.*, c.nombre as cliente_nombre, u.nombre as usuario_nombre
+            SELECT v.*, c.nombre as cliente_nombre
             FROM ventas v
             JOIN clientes c ON v.cliente_id = c.id
-            JOIN usuarios u ON v.usuario_id = u.id
         '''
         
         params = []

@@ -5,20 +5,14 @@ from ..models.cliente_model import ClienteModel
 from ..models.producto_model import ProductoModel
 from ..controllers.venta_controller import VentaController
 from ..utils.mensajes import Mensajes
-from ..database.db_connection import get_db_connection
 
 class VentasView(QWidget):
     def __init__(self):
         super().__init__()
         self.productos_venta = []
-        self.usuario_id = self.obtener_usuario_id()
         self.init_ui()
         self.cargar_clientes()
         self.cargar_productos()
-    
-    def obtener_usuario_id(self):
-        # Falta implementación de usuarios.
-        return 1
     
     def init_ui(self):
         layout = QVBoxLayout()
@@ -160,7 +154,7 @@ class VentasView(QWidget):
 
         try:
             venta_id = VentaController.registrar_venta(
-                cliente_id, self.usuario_id, self.productos_venta
+                cliente_id, self.productos_venta
             )
 
             Mensajes.mostrar_exito(f"Venta registrada correctamente. ID: {venta_id}", self)

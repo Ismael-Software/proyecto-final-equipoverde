@@ -41,11 +41,9 @@ CREATE TABLE IF NOT EXISTS productos (
 CREATE TABLE IF NOT EXISTS ventas (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     cliente_id INTEGER NOT NULL,
-    usuario_id INTEGER NOT NULL,
     total REAL NOT NULL,
     fecha_venta DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (cliente_id) REFERENCES clientes (id),
-    FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+    FOREIGN KEY (cliente_id) REFERENCES clientes (id)
 );
 
 -- Tabla de detalle_venta
